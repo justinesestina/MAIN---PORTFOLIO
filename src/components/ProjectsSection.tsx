@@ -16,7 +16,7 @@ const projects = [
     subtitle: "All School Departments",
     description:
       "An interactive and secure voting platform built for all school departments, featuring login authentication, real-time vote tallying, and a clean user interface designed for maximum usability and transparency.",
-    link: "https://z4-votenetph.vercel.app/login",
+    link: "https://votenet-z4.netlify.app/login",
     tech: ["React.js", "Supabase", "Authentication", "Real-time"],
     icons: [Code2, Shield, Users, Database],
   },
