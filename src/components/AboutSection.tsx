@@ -30,7 +30,7 @@ const AboutSection = () => {
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden neon-border relative group">
+              <div className="w-56 h-72 sm:w-64 sm:h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden neon-border relative group">
                 <motion.img
                   src={profilePhoto}
                   alt="Justine Ragaza"
@@ -42,15 +42,37 @@ const AboutSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
+              {/* Corner animated accents */}
               <motion.div
-                className="absolute -bottom-3 -right-3 w-64 h-80 sm:w-72 sm:h-96 rounded-2xl border border-primary/20 -z-10"
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
+                className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-primary rounded-tl-xl"
+                animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-primary/30 blur-sm"
-                animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0.8, 0.5] }}
+                className="absolute -top-3 -right-3 w-10 h-10 border-t-2 border-r-2 border-accent rounded-tr-xl"
+                animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.15, 1] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              />
+              <motion.div
+                className="absolute -bottom-3 -left-3 w-10 h-10 border-b-2 border-l-2 border-accent rounded-bl-xl"
+                animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.15, 1] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              />
+              <motion.div
+                className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-primary rounded-br-xl"
+                animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.1, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              />
+              {/* Glow orbs at corners */}
+              <motion.div
+                className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-primary/40 blur-md"
+                animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
                 transition={{ duration: 4, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-accent/40 blur-md"
+                animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
+                transition={{ duration: 4, repeat: Infinity, delay: 2 }}
               />
             </motion.div>
           </motion.div>
