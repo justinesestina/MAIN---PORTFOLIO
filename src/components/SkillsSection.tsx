@@ -74,23 +74,32 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: catIdx * 0.1 }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="glass-card p-6 neon-border hover:border-primary/40 transition-all duration-300 group"
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <cat.icon className="w-5 h-5 text-primary" />
-                </div>
+                <motion.div
+                  className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+                  whileHover={{ rotate: 8, scale: 1.1 }}
+                >
+                  <cat.icon className="w-5 h-5 text-primary neon-glow-icon" strokeWidth={1.75} />
+                </motion.div>
                 <h3 className="font-display font-semibold text-foreground">{cat.title}</h3>
               </div>
               <div className="space-y-3">
-                {cat.skills.map((skill) => (
-                  <div
+                {cat.skills.map((skill, skillIdx) => (
+                  <motion.div
                     key={skill.name}
-                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: catIdx * 0.1 + skillIdx * 0.05 }}
+                    whileHover={{ x: 4 }}
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-default"
                   >
-                    <skill.icon className="w-3.5 h-3.5 text-primary/60 flex-shrink-0" />
+                    <skill.icon className="w-4 h-4 text-primary/70 flex-shrink-0 neon-glow-icon" strokeWidth={1.75} />
                     <span>{skill.name}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
