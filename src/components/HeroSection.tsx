@@ -38,13 +38,27 @@ const HeroSection = () => {
             <span className="text-sm text-primary font-medium">Available for freelance</span>
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight">
-            <span className="text-foreground">Justine</span>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight tracking-tight">
+            <motion.span
+              className="text-foreground inline-block"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              Justine
+            </motion.span>
             <br />
-            <span className="gradient-text neon-text">Ragaza</span>
+            <motion.span
+              className="gradient-text neon-text inline-block"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+            >
+              Ragaza
+            </motion.span>
           </h1>
 
-          <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
             3rd-year IT student at ICCT Colleges Antipolo Campus • Aspiring Software Engineer • Full-Stack Web Developer & Digital Product Designer
           </p>
 

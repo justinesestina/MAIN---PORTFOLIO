@@ -11,7 +11,7 @@ const contactSchema = z.object({
 });
 
 const socials = [
-  { icon: Facebook, href: "https://www.facebook.com/share/1Ddn2mHteb/", label: "Facebook" },
+  { icon: Facebook, href: "https://www.facebook.com/justine.sestina", label: "Facebook" },
   { icon: Mail, href: "mailto:kisethsestina@gmail.com", label: "Email" },
   { icon: Github, href: "https://github.com/justinesestina", label: "GitHub" },
   { icon: Instagram, href: "https://www.instagram.com/zaps_xz?igsh=emNwN25idGxkamFq", label: "Instagram" },
