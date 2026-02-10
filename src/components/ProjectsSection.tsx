@@ -7,7 +7,7 @@ const projects = [
     subtitle: "Full-Stack Application",
     description:
       "A comprehensive full-stack student management system featuring role-based authentication, complete CRUD operations, and a polished responsive interface. Demonstrates practical mastery of frontend, backend, and database integration.",
-    link: "https://zap-gatewayph.vercel.app/",
+    link: "https://zap-gateway.vercel.app/",
     tech: ["React.js", "Supabase", "Tailwind CSS", "PostgreSQL"],
     icons: [Code2, Database, Shield, Users],
   },
