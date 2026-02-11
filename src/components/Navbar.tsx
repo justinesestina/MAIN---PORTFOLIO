@@ -35,9 +35,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 text-foreground font-display font-bold text-xl">
-          <Zap className="w-5 h-5 text-primary neon-glow-icon" />
-          Zap Portfolio
+        <a href="#" className="flex items-center text-foreground">
+          <Zap className="w-6 h-6 text-primary neon-glow-icon" />
         </a>
 
         {/* Desktop */}
