@@ -59,7 +59,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2">
-            3rd-year IT student at ICCT Colleges Antipolo Campus • Aspiring Software Engineer • Full-Stack Web Developer & Digital Product Designer
+            3rd-year IT student at ICCT Colleges Antipolo Campus • Full-Stack Web Developer & Digital Product Designer
           </p>
 
           <motion.button
