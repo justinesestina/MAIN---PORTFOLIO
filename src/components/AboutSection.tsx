@@ -86,10 +86,10 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-              I'm a 3rd-year Information Technology student at ICCT Colleges Antipolo Campus with a deep passion for full-stack development and interactive digital products. I thrive on exploring emerging technologies and pushing my boundaries with projects that are both challenging and rewarding.
+              I'm a 3rd-year Information Technology student at ICCT Colleges Antipolo Campus with a strong interest in full-stack web development and interactive digital products. I enjoy exploring new technologies and challenging myself through hands-on projects that help me grow both technically and creatively.
             </p>
             <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-              I specialize in building functional school systems and web applications that are visually appealing and user-friendly. My goal is to become a skilled software engineer, continuously sharpening my expertise in frontend, backend, and UI/UX design.
+              I focus on building functional school systems and web applications that are clean, structured, and user-friendly. My goal is to continuously improve as a web developer, strengthening my foundations in frontend, backend, and UI design while working toward higher technical responsibilities in the future.
             </p>
 
             <motion.div
