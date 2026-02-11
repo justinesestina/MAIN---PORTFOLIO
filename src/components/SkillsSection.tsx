@@ -7,47 +7,33 @@ import {
 
 const categories = [
   {
-    title: "Frontend",
+    title: "Frontend (Foundations)",
     icon: Layout,
     skills: [
       { name: "HTML5", icon: Globe },
       { name: "CSS3", icon: Palette },
-      { name: "JavaScript (ES6+)", icon: Braces },
-      { name: "React.js", icon: Code2 },
+      { name: "JavaScript", icon: Braces },
+      { name: "React", icon: Code2 },
       { name: "Tailwind CSS", icon: FileCode },
-      { name: "Responsive Design", icon: Layers },
+      { name: "Responsive Layouts", icon: Layers },
     ],
   },
   {
-    title: "Backend",
+    title: "Backend (Learning & Building)",
     icon: Server,
     skills: [
       { name: "Supabase", icon: Server },
-      { name: "Auth Systems", icon: KeyRound },
-      { name: "REST API", icon: Globe },
-      { name: "Server Validation", icon: ClipboardCheck },
+      { name: "Authentication (Basic Implementation)", icon: KeyRound },
+      { name: "REST API Integration", icon: Globe },
     ],
   },
   {
-    title: "Database",
+    title: "Database (Basic Usage)",
     icon: Database,
     skills: [
       { name: "PostgreSQL", icon: Database },
-      { name: "Supabase DB", icon: Server },
-      { name: "Row Level Security", icon: Lock },
       { name: "CRUD Operations", icon: FileCode },
-      { name: "Data Access Policies", icon: FileSearch },
-    ],
-  },
-  {
-    title: "Security",
-    icon: Shield,
-    skills: [
-      { name: "Role-based Access", icon: UserCheck },
-      { name: "Rate Limiting", icon: Timer },
-      { name: "Session Mgmt", icon: KeyRound },
-      { name: "Input Validation", icon: ClipboardCheck },
-      { name: "Audit Logging", icon: FileSearch },
+      { name: "Supabase Database", icon: Server },
     ],
   },
 ];
@@ -63,7 +49,7 @@ const SkillsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">Skills & Tech Stack</h2>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">Tools I Use</h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
