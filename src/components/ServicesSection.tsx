@@ -4,23 +4,23 @@ import { Globe, Layout, Lightbulb, Palette } from "lucide-react";
 const services = [
   {
     icon: Globe,
-    title: "Practical Full-Stack Web Applications",
-    description: "I build structured and functional web applications with authentication and database integration. I continue improving my understanding of backend logic, system structure, and real-world implementation with every project.",
+    title: "Practical Web Applications",
+    description: "I build structured and functional web applications with authentication and database integration. With every project, I aim to strengthen my understanding of backend fundamentals and real-world system development.",
   },
   {
     icon: Layout,
     title: "Responsive Frontend Development",
-    description: "I create clean and mobile-friendly interfaces using React and modern CSS tools. I focus on clarity, usability, and strengthening my frontend foundations.",
+    description: "I create clean and mobile-friendly interfaces using React and modern CSS tools. I focus on usability, clarity, and continuously improving my frontend foundations.",
   },
   {
     icon: Lightbulb,
-    title: "Academic & System-Based Solutions",
+    title: "Academic & System-Based Projects",
     description: "I enjoy building practical systems such as student management platforms and voting systems, applying structured thinking and problem-solving.",
   },
   {
     icon: Palette,
     title: "UI-Focused Web Design",
-    description: "I design simple and user-friendly interfaces with smooth interactions. I am continuously learning better UI/UX practices to balance aesthetics and functionality.",
+    description: "I design simple, user-friendly interfaces with smooth interactions. I continue learning better UI/UX practices to improve both aesthetics and functionality.",
   },
 ];
 
@@ -35,7 +35,7 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">What I Currently Offer</h2>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">What I’m Currently Building & Improving</h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
