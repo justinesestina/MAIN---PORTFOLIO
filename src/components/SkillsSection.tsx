@@ -49,10 +49,10 @@ const SkillsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">Tools I Use</h2>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">Tech Stack</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {categories.map((cat, catIdx) => (
             <motion.div
               key={cat.title}
