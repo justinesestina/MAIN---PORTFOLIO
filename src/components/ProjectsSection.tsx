@@ -26,10 +26,11 @@ const projects = [
     image: voteNetImg,
     tech: ["React.js", "Supabase", "Authentication", "Real-time"],
     icons: [Code2, Shield, Users, Database],
+    demoCredentials: { studentId: "123456790", email: "joserizal@gmail.com" },
   },
 ];
 
-const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: number }) => {
+const ProjectCard = ({ project, idx }: { project: typeof projects[0] & { demoCredentials?: { studentId: string; email: string } }; idx: number }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -117,30 +118,48 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
                 ))}
               </motion.div>
 
+              {/* Demo Credentials - only for VoteNet */}
+              {project.demoCredentials && (
+                <motion.div
+                  className="w-full max-w-xs mx-auto px-4 py-2.5 rounded-lg bg-[hsl(270_20%_12%/0.8)] border border-primary/20 text-center"
+                  initial={{ y: 10 }}
+                  animate={{ y: isHovered ? 0 : 10 }}
+                  transition={{ duration: 0.3, delay: 0.18 }}
+                >
+                  <p className="text-[10px] uppercase tracking-wider text-primary/70 font-semibold mb-1">Demo Account (Registered)</p>
+                  <p className="text-[11px] text-muted-foreground leading-relaxed">
+                    Student ID: <span className="text-foreground font-mono">{project.demoCredentials.studentId}</span>
+                  </p>
+                  <p className="text-[11px] text-muted-foreground leading-relaxed">
+                    Email: <span className="text-foreground font-mono">{project.demoCredentials.email}</span>
+                  </p>
+                </motion.div>
+              )}
+
               {/* Buttons */}
               <motion.div
                 className="flex gap-3 mt-2"
                 initial={{ y: 10 }}
                 animate={{ y: isHovered ? 0 : 10 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
+                transition={{ duration: 0.3, delay: 0.22 }}
               >
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition-colors"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <ExternalLink className="w-4 h-4" /> Live Demo
+                  <ExternalLink className="w-3.5 h-3.5" /> Live Demo
                 </a>
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-border text-foreground text-sm font-medium hover:bg-muted transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-foreground text-xs font-medium hover:bg-muted transition-colors"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <Github className="w-4 h-4" /> GitHub
+                  <Github className="w-3.5 h-3.5" /> GitHub
                 </a>
               </motion.div>
             </motion.div>
