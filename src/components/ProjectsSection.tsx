@@ -151,9 +151,17 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
         <div className="px-6 py-4 border-t border-border/20">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-display font-bold text-foreground text-base">
-                {project.title}
-              </h3>
+              <div className="flex items-center gap-2">
+                <h3 className="font-display font-bold text-foreground text-base">
+                  {project.title}
+                </h3>
+                <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20 font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3 h-3">
+                    <path d="M8 1a.75.75 0 0 1 .692.462l1.371 3.294 3.544.514a.75.75 0 0 1 .416 1.28l-2.565 2.5.605 3.53a.75.75 0 0 1-1.088.79L8 11.347l-3.175 1.67a.75.75 0 0 1-1.088-.79l.605-3.53-2.565-2.5a.75.75 0 0 1 .416-1.28l3.544-.514L7.108 1.462A.75.75 0 0 1 8 1Z" />
+                  </svg>
+                  AI-Assisted
+                </span>
+              </div>
               <p className="text-primary/70 text-xs mt-0.5">{project.subtitle}</p>
             </div>
             <a
