@@ -104,7 +104,7 @@ const AboutSection = () => {
                 whileHover={{ scale: 1.05, borderColor: "hsl(270 80% 65% / 0.4)" }}
               >
                 <Code2 className="w-4 h-4 text-primary" />
-                <span className="text-sm text-foreground font-medium">Full-Stack Developer</span>
+                <span className="text-sm text-foreground font-medium">Web Developer</span>
               </motion.div>
               <motion.div
                 className="glass-card px-4 py-3 flex items-center gap-2"
