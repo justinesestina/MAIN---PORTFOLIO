@@ -79,7 +79,7 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0] & { demoCre
 
             {/* Hover overlay */}
             <motion.div
-              className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[hsl(270_15%_5%/0.85)] backdrop-blur-sm"
+              className="absolute inset-0 flex flex-col items-center justify-start gap-2 py-4 px-2 overflow-y-auto bg-[hsl(270_15%_5%/0.88)] backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
