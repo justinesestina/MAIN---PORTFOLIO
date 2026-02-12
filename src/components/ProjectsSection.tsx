@@ -118,21 +118,32 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0] & { demoCre
                 ))}
               </motion.div>
 
-              {/* Demo Credentials - only for VoteNet */}
+              {/* Credentials - only for VoteNet */}
               {project.demoCredentials && (
                 <motion.div
-                  className="w-full max-w-xs mx-auto px-4 py-2.5 rounded-lg bg-[hsl(270_20%_12%/0.8)] border border-primary/20 text-center"
+                  className="w-full max-w-xs mx-auto flex flex-col gap-1.5"
                   initial={{ y: 10 }}
                   animate={{ y: isHovered ? 0 : 10 }}
                   transition={{ duration: 0.3, delay: 0.18 }}
                 >
-                  <p className="text-[10px] uppercase tracking-wider text-primary/70 font-semibold mb-1">Demo Account (Registered)</p>
-                  <p className="text-[11px] text-muted-foreground leading-relaxed">
-                    Student ID: <span className="text-foreground font-mono">{project.demoCredentials.studentId}</span>
-                  </p>
-                  <p className="text-[11px] text-muted-foreground leading-relaxed">
-                    Email: <span className="text-foreground font-mono">{project.demoCredentials.email}</span>
-                  </p>
+                  <div className="px-3 py-2 rounded-lg bg-[hsl(270_20%_12%/0.8)] border border-primary/20 text-center">
+                    <p className="text-[9px] uppercase tracking-wider text-primary/70 font-semibold mb-0.5">Login Page Credentials</p>
+                    <p className="text-[10px] text-muted-foreground leading-relaxed">
+                      Username: <span className="text-foreground font-mono">VoteNet25</span>
+                    </p>
+                    <p className="text-[10px] text-muted-foreground leading-relaxed">
+                      Password: <span className="text-foreground font-mono">votenet2k25</span>
+                    </p>
+                  </div>
+                  <div className="px-3 py-2 rounded-lg bg-[hsl(270_20%_12%/0.8)] border border-primary/20 text-center">
+                    <p className="text-[9px] uppercase tracking-wider text-primary/70 font-semibold mb-0.5">Demo Account (Registered)</p>
+                    <p className="text-[10px] text-muted-foreground leading-relaxed">
+                      Student ID: <span className="text-foreground font-mono">{project.demoCredentials.studentId}</span>
+                    </p>
+                    <p className="text-[10px] text-muted-foreground leading-relaxed">
+                      Email: <span className="text-foreground font-mono">{project.demoCredentials.email}</span>
+                    </p>
+                  </div>
                 </motion.div>
               )}
 
