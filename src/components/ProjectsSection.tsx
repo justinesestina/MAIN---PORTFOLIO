@@ -189,7 +189,7 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
             </motion.div>
           </div>
         </div>
-
+        
         {/* Bottom Info Bar */}
         <div className="px-6 py-4 border-t border-border/20">
           <div className="flex items-center justify-between">
