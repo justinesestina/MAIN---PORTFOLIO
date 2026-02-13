@@ -80,7 +80,7 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0] & { demoCre
             <motion.img
               src={project.image}
               alt={`${project.title} preview`}
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-center"
               loading="lazy"
               animate={{ scale: isHovered ? 1.02 : 1 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
