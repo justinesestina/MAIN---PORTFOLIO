@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Code2, Database, Shield, Users, Github } from "lucide-react";
 import zapGatewayImg from "@/assets/project-zap-gateway.png";
 import voteNetImg from "@/assets/project-votenet.png";
+import cyberverseImg from "@/assets/project-cyberverse.png";
 import { useState } from "react";
 
 const projects = [
@@ -27,6 +28,17 @@ const projects = [
     tech: ["React.js", "Supabase", "Authentication", "Real-time"],
     icons: [Code2, Shield, Users, Database],
     demoCredentials: { studentId: "123456790", email: "joserizal@gmail.com" },
+  },
+  {
+    title: "CyberVerse Explorer",
+    subtitle: "Interactive Cybersecurity Learning Platform",
+    description:
+      "CyberVerse Explorer helps beginners understand cybersecurity through interactive hacker types, career pathways, and safe coding examples—all in a responsive, animated web experience.",
+    link: "https://cyberverse-zap.vercel.app/",
+    github: "https://github.com/justinesestina",
+    image: cyberverseImg,
+    tech: ["React.js", "Tailwind CSS", "Framer Motion"],
+    icons: [Code2, Shield, Users],
   },
 ];
 
