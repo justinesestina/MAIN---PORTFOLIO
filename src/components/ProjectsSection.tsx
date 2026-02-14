@@ -49,7 +49,7 @@ const projects = [
     title: "ICCT Attendance Portal",
     subtitle: "Frontend Attendance Tracking System",
     description:
-      "Frontend-based attendance portal with enterprise-style UI, smart tracking features, and Excel export capability, built using Tailwind CSS and Vanilla JavaScript.",
+      "A frontend attendance management system, featuring a responsive dashboard, smart attendance tracking, and Excel export functionality. Designed with a corporate-academic UI approach and optimized for lightweight deployment.",
     link: "https://icct-track.vercel.app/",
     github: "https://github.com/justinesestina",
     image: icctAttendanceImg,
