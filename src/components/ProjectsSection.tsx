@@ -17,6 +17,7 @@ const projects = [
     image: zapGatewayImg,
     tech: ["React.js", "Supabase", "Tailwind CSS", "PostgreSQL"],
     icons: [Code2, Database, Shield, Users],
+    fullStack: true,
   },
   {
     title: "Campus Vote (VoteNet)",
@@ -29,6 +30,7 @@ const projects = [
     tech: ["React.js", "Supabase", "Authentication", "Real-time"],
     icons: [Code2, Shield, Users, Database],
     demoCredentials: { studentId: "123456790", email: "joserizal@gmail.com" },
+    fullStack: true,
   },
   {
     title: "CyberVerse Explorer",
@@ -41,6 +43,7 @@ const projects = [
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     icons: [Code2, Shield, Users],
     showAiBadge: false,
+    frontendOnly: true,
   },
   {
     title: "ICCT Attendance Portal",
@@ -224,6 +227,12 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
                   <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20 font-medium">
                     <Code2 className="w-3 h-3" />
                     Frontend Only
+                  </span>
+                )}
+                {(project as any).fullStack && (
+                  <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">
+                    <Database className="w-3 h-3" />
+                    Full-Stack
                   </span>
                 )}
               </div>
