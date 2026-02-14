@@ -226,7 +226,7 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
                 {(project as any).frontendOnly && (
                   <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20 font-medium">
                     <Code2 className="w-3 h-3" />
-                    Frontend Only
+                    Frontend
                   </span>
                 )}
                 {(project as any).fullStack && (
