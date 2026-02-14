@@ -3,6 +3,7 @@ import { ExternalLink, Code2, Database, Shield, Users, Github } from "lucide-rea
 import zapGatewayImg from "@/assets/project-zap-gateway.png";
 import voteNetImg from "@/assets/project-votenet.png";
 import cyberverseImg from "@/assets/project-cyberverse.png";
+import icctAttendanceImg from "@/assets/project-icct-attendance.png";
 import { useState } from "react";
 
 const projects = [
@@ -40,6 +41,19 @@ const projects = [
     tech: ["React.js", "Tailwind CSS", "Framer Motion"],
     icons: [Code2, Shield, Users],
     showAiBadge: false,
+  },
+  {
+    title: "ICCT Attendance Portal",
+    subtitle: "Frontend Attendance Tracking System",
+    description:
+      "Frontend-based attendance portal with enterprise-style UI, smart tracking features, and Excel export capability, built using Tailwind CSS and Vanilla JavaScript.",
+    link: "https://icct-track.vercel.app/",
+    github: "https://github.com/justinesestina",
+    image: icctAttendanceImg,
+    tech: ["HTML5", "Tailwind CSS", "Vanilla JS"],
+    icons: [Code2, Shield, Users],
+    showAiBadge: false,
+    frontendOnly: true,
   },
 ];
 
@@ -204,6 +218,12 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
                       <path d="M8 1a.75.75 0 0 1 .692.462l1.371 3.294 3.544.514a.75.75 0 0 1 .416 1.28l-2.565 2.5.605 3.53a.75.75 0 0 1-1.088.79L8 11.347l-3.175 1.67a.75.75 0 0 1-1.088-.79l.605-3.53-2.565-2.5a.75.75 0 0 1 .416-1.28l3.544-.514L7.108 1.462A.75.75 0 0 1 8 1Z" />
                     </svg>
                     AI-Assisted
+                  </span>
+                )}
+                {(project as any).frontendOnly && (
+                  <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20 font-medium">
+                    <Code2 className="w-3 h-3" />
+                    Frontend Only
                   </span>
                 )}
               </div>
