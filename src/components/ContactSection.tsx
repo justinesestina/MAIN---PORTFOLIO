@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Facebook, Github, Instagram, Mail, Send, Zap } from "lucide-react";
+import { Facebook, Github, Instagram, Mail, Send } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 
@@ -38,35 +38,36 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 section-gradient">
+    <section id="contact" className="py-28 section-gradient">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">Get In Touch</h2>
+          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-3">Reach out</p>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Get In Touch</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {/* Social links */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
             className="space-y-8"
           >
             <div>
-              <h3 className="font-display font-semibold text-xl text-foreground mb-3">Let's Connect</h3>
+              <h3 className="font-display font-semibold text-lg text-foreground mb-3">Let's Connect</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               {socials.map((social) => (
                 <a
                   key={social.label}
@@ -74,15 +75,15 @@ const ContactSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 neon-border transition-all duration-300 hover:shadow-[0_0_20px_hsl(270_100%_70%/0.2)]"
+                  className="w-11 h-11 rounded-lg bg-secondary/60 border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-4.5 h-4.5" />
                 </a>
               ))}
             </div>
 
-            <div className="glass-card p-5 neon-border flex items-center gap-3">
-              <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+            <div className="p-4 rounded-lg bg-secondary/40 border border-border/30 flex items-center gap-3">
+              <Mail className="w-4 h-4 text-primary flex-shrink-0" />
               <span className="text-sm text-muted-foreground">kisethsestina@gmail.com</span>
             </div>
           </motion.div>
@@ -90,11 +91,11 @@ const ContactSection = () => {
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="space-y-5"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="space-y-4"
           >
             <div>
               <input
@@ -102,9 +103,9 @@ const ContactSection = () => {
                 placeholder="Your Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                className="w-full px-4 py-3 rounded-lg bg-secondary/40 border border-border/30 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
               />
-              {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
+              {errors.name && <p className="text-destructive text-xs mt-1.5">{errors.name}</p>}
             </div>
             <div>
               <input
@@ -112,9 +113,9 @@ const ContactSection = () => {
                 placeholder="Your Email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                className="w-full px-4 py-3 rounded-lg bg-secondary/40 border border-border/30 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
               />
-              {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-destructive text-xs mt-1.5">{errors.email}</p>}
             </div>
             <div>
               <textarea
@@ -122,15 +123,15 @@ const ContactSection = () => {
                 rows={4}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none"
+                className="w-full px-4 py-3 rounded-lg bg-secondary/40 border border-border/30 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all resize-none"
               />
-              {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
+              {errors.message && <p className="text-destructive text-xs mt-1.5">{errors.message}</p>}
             </div>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm flex items-center justify-center gap-2 neon-border hover:shadow-[0_0_30px_hsl(270_100%_70%/0.3)] transition-shadow duration-300"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
+              className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors duration-300"
             >
               <Send className="w-4 h-4" />
               Send Message
@@ -144,12 +145,11 @@ const ContactSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-24 text-center border-t border-border/30 pt-8"
+          className="mt-24 text-center border-t border-border/20 pt-8"
         >
-          <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm">
-            <Zap className="w-4 h-4 text-primary" />
-            <span>© 2025 Justine Ragaza. Built with passion.</span>
-          </div>
+          <p className="text-muted-foreground text-xs">
+            © 2025 Justine Ragaza. Built with passion.
+          </p>
         </motion.div>
       </div>
     </section>
