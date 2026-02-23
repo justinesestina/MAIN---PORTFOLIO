@@ -26,31 +26,31 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24">
+    <section id="services" className="py-28">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-display font-bold gradient-text inline-block">What I’m Currently Building & Improving</h2>
+          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-3">What I do</p>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">What I'm Currently Building & Improving</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="glass-card p-6 neon-border text-center hover:border-primary/40 transition-all duration-300 group"
+              className="p-6 rounded-xl bg-card/40 border border-border/30 hover:border-border/60 transition-all duration-300 text-center group"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="w-6 h-6 text-primary" />
+              <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/12 transition-colors">
+                <service.icon className="w-5 h-5 text-primary" />
               </div>
               <h3 className="font-display font-semibold text-foreground mb-3 text-sm">{service.title}</h3>
               <p className="text-muted-foreground text-xs leading-relaxed">{service.description}</p>
