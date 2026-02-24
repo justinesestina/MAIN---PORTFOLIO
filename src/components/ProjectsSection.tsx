@@ -56,18 +56,6 @@ const projects = [
     showAiBadge: false,
     frontendOnly: true,
   },
-   {
-    title: "Nocturne Café",
-subtitle: "Cinematic Café Experience Website",
-description:
-  "A frontend immersive café website focused on visual storytelling, interaction design, and responsive editorial layouts, built as a portfolio project to demonstrate advanced UI/UX and motion-driven frontend development.",
-    link: "https://nocturnecafe-ph.vercel.app/",
-    github: "https://github.com/justinesestina",
-    image: icctAttendanceImg,
-    tech: ["HTML5", "Tailwind CSS", "Vanilla JS"],
-    showAiBadge: false,
-    frontendOnly: true,
-  },
 ];
 
 const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: number }) => {
