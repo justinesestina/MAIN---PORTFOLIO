@@ -57,11 +57,11 @@ const projects = [
     frontendOnly: true,
   },
    {
-    title: "ICCT Attendance Portal",
-    subtitle: "Frontend Attendance Tracking System",
-    description:
-      "A frontend attendance management system, featuring a responsive dashboard, smart attendance tracking, and Excel export functionality. Designed with a corporate-academic UI approach and optimized for lightweight deployment.",
-    link: "https://icct-track.vercel.app/",
+    title: "Nocturne Café",
+subtitle: "Cinematic Café Experience Website",
+description:
+  "A frontend immersive café website focused on visual storytelling, interaction design, and responsive editorial layouts, built as a portfolio project to demonstrate advanced UI/UX and motion-driven frontend development.",
+    link: "https://nocturnecafe-ph.vercel.app/",
     github: "https://github.com/justinesestina",
     image: icctAttendanceImg,
     tech: ["HTML5", "Tailwind CSS", "Vanilla JS"],
