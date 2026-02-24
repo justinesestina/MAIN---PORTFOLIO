@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Facebook, Github, Instagram, Mail, Send } from "lucide-react";
+import { Facebook, Github, Instagram, Mail, Send, Heart } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 
@@ -37,65 +37,82 @@ const ContactSection = () => {
     setForm({ name: "", email: "", message: "" });
   };
 
+  const inputClasses = "w-full px-5 py-4 rounded-2xl bg-secondary/30 border border-border/30 text-foreground placeholder:text-muted-foreground/50 text-sm focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300";
+
   return (
-    <section id="contact" className="py-28 section-gradient">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-32 section-gradient relative overflow-hidden">
+      <div className="absolute inset-0 grain-overlay" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-3">Reach out</p>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Get In Touch</h2>
+          <p className="text-primary text-xs font-medium tracking-[0.3em] uppercase mb-4">Reach out</p>
+          <h2 className="text-4xl sm:text-5xl font-display font-bold text-foreground">Get In Touch</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-14 max-w-4xl mx-auto">
           {/* Social links */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             className="space-y-8"
           >
             <div>
-              <h3 className="font-display font-semibold text-lg text-foreground mb-3">Let's Connect</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <h3 className="font-display font-semibold text-2xl text-foreground mb-4">Let's Connect</h3>
+              <p className="text-muted-foreground text-base leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </div>
 
             <div className="flex gap-3">
-              {socials.map((social) => (
-                <a
+              {socials.map((social, i) => (
+                <motion.a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-11 h-11 rounded-lg bg-secondary/60 border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -3, scale: 1.05 }}
+                  className="w-12 h-12 rounded-2xl bg-secondary/50 border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/8 transition-all duration-300"
                 >
-                  <social.icon className="w-4.5 h-4.5" />
-                </a>
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
               ))}
             </div>
 
-            <div className="p-4 rounded-lg bg-secondary/40 border border-border/30 flex items-center gap-3">
-              <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="text-sm text-muted-foreground">kisethsestina@gmail.com</span>
-            </div>
+            <motion.div 
+              className="p-5 rounded-2xl bg-primary/5 border border-primary/15 flex items-center gap-4"
+              whileHover={{ scale: 1.01 }}
+            >
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Mail className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground mb-0.5">Email me at</p>
+                <span className="text-sm text-foreground font-medium">kisethsestina@gmail.com</span>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-5"
           >
             <div>
               <input
@@ -103,9 +120,9 @@ const ContactSection = () => {
                 placeholder="Your Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-secondary/40 border border-border/30 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+                className={inputClasses}
               />
-              {errors.name && <p className="text-destructive text-xs mt-1.5">{errors.name}</p>}
+              {errors.name && <p className="text-destructive text-xs mt-2 ml-2">{errors.name}</p>}
             </div>
             <div>
               <input
@@ -113,25 +130,25 @@ const ContactSection = () => {
                 placeholder="Your Email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-secondary/40 border border-border/30 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all"
+                className={inputClasses}
               />
-              {errors.email && <p className="text-destructive text-xs mt-1.5">{errors.email}</p>}
+              {errors.email && <p className="text-destructive text-xs mt-2 ml-2">{errors.email}</p>}
             </div>
             <div>
               <textarea
                 placeholder="Your Message"
-                rows={4}
+                rows={5}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-secondary/40 border border-border/30 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/20 transition-all resize-none"
+                className={`${inputClasses} resize-none`}
               />
-              {errors.message && <p className="text-destructive text-xs mt-1.5">{errors.message}</p>}
+              {errors.message && <p className="text-destructive text-xs mt-2 ml-2">{errors.message}</p>}
             </div>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.01 }}
+              whileHover={{ scale: 1.01, boxShadow: "0 10px 40px -10px hsl(28 70% 55% / 0.3)" }}
               whileTap={{ scale: 0.99 }}
-              className="w-full py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors duration-300"
+              className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-body font-semibold text-sm flex items-center justify-center gap-2.5 hover:bg-primary/90 transition-all duration-300"
             >
               <Send className="w-4 h-4" />
               Send Message
@@ -145,10 +162,10 @@ const ContactSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-24 text-center border-t border-border/20 pt-8"
+          className="mt-28 text-center border-t border-border/15 pt-10"
         >
-          <p className="text-muted-foreground text-xs">
-            © 2025 Justine Ragaza. Built with passion.
+          <p className="text-muted-foreground text-sm flex items-center justify-center gap-1.5">
+            © 2025 Justine Ragaza. Built with <Heart className="w-3.5 h-3.5 text-primary fill-primary" /> passion.
           </p>
         </motion.div>
       </div>
