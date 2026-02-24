@@ -56,6 +56,18 @@ const projects = [
     showAiBadge: false,
     frontendOnly: true,
   },
+   {
+    title: "ICCT Attendance Portal",
+    subtitle: "Frontend Attendance Tracking System",
+    description:
+      "A frontend attendance management system, featuring a responsive dashboard, smart attendance tracking, and Excel export functionality. Designed with a corporate-academic UI approach and optimized for lightweight deployment.",
+    link: "https://icct-track.vercel.app/",
+    github: "https://github.com/justinesestina",
+    image: icctAttendanceImg,
+    tech: ["HTML5", "Tailwind CSS", "Vanilla JS"],
+    showAiBadge: false,
+    frontendOnly: true,
+  },
 ];
 
 const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: number }) => {
