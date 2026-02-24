@@ -63,25 +63,25 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, delay: idx * 0.15 }}
+      transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group rounded-xl overflow-hidden bg-card/40 border border-border/30 hover:border-border/60 transition-all duration-400"
+      className="group rounded-3xl overflow-hidden bg-card/50 border border-border/30 hover:border-primary/20 transition-all duration-500 cozy-shadow hover:shadow-2xl hover:shadow-primary/5"
     >
       {/* Browser Frame */}
       <div className="relative">
         {/* Browser Top Bar */}
-        <div className="flex items-center gap-2 px-4 py-2.5 bg-secondary/40 border-b border-border/20">
+        <div className="flex items-center gap-2 px-5 py-3 bg-secondary/30 border-b border-border/15">
           <div className="flex gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-            <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+            <div className="w-2.5 h-2.5 rounded-full bg-destructive/40" />
+            <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
+            <div className="w-2.5 h-2.5 rounded-full bg-accent/40" />
           </div>
           <div className="flex-1 mx-3">
-            <div className="bg-secondary/60 rounded-md px-3 py-1 text-[10px] text-muted-foreground font-mono truncate max-w-[280px] mx-auto text-center">
+            <div className="bg-secondary/50 rounded-lg px-3 py-1.5 text-[10px] text-muted-foreground font-mono truncate max-w-[280px] mx-auto text-center">
               {project.link.replace("https://", "")}
             </div>
           </div>
@@ -94,32 +94,32 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
             alt={`${project.title} preview`}
             className={`w-full h-full object-center ${project.title === "Zap Gateway Academy" ? "object-contain bg-secondary/30" : "object-cover"}`}
             loading="lazy"
-            animate={{ scale: isHovered ? 1.02 : 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            animate={{ scale: isHovered ? 1.04 : 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           />
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent opacity-50" />
 
           {/* Hover overlay */}
           <motion.div
-            className="absolute inset-0 flex flex-col items-center justify-start gap-2.5 py-5 px-3 overflow-y-auto bg-card/92 backdrop-blur-sm"
+            className="absolute inset-0 flex flex-col items-center justify-start gap-3 py-6 px-4 overflow-y-auto bg-card/95 backdrop-blur-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           >
             <motion.h3
-              className="font-display font-bold text-lg text-foreground text-center px-4"
-              initial={{ y: 8 }}
-              animate={{ y: isHovered ? 0 : 8 }}
+              className="font-display font-bold text-xl text-foreground text-center px-4"
+              initial={{ y: 10 }}
+              animate={{ y: isHovered ? 0 : 10 }}
               transition={{ duration: 0.3, delay: 0.05 }}
             >
               {project.title}
             </motion.h3>
             <motion.p
               className="text-muted-foreground text-xs text-center px-6 max-w-md leading-relaxed"
-              initial={{ y: 8 }}
-              animate={{ y: isHovered ? 0 : 8 }}
+              initial={{ y: 10 }}
+              animate={{ y: isHovered ? 0 : 10 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
               {project.description}
@@ -128,14 +128,14 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
             {/* Tech tags */}
             <motion.div
               className="flex flex-wrap justify-center gap-2 mt-1"
-              initial={{ y: 8 }}
-              animate={{ y: isHovered ? 0 : 8 }}
+              initial={{ y: 10 }}
+              animate={{ y: isHovered ? 0 : 10 }}
               transition={{ duration: 0.3, delay: 0.15 }}
             >
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-[10px] px-2.5 py-1 rounded-md bg-secondary/60 text-muted-foreground border border-border/30"
+                  className="text-[10px] px-3 py-1.5 rounded-full bg-primary/8 text-primary/80 border border-primary/15 font-medium"
                 >
                   {t}
                 </span>
@@ -145,26 +145,26 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
             {/* Credentials */}
             {project.demoCredentials && (
               <motion.div
-                className="w-full max-w-xs mx-auto flex flex-col gap-1.5"
-                initial={{ y: 8 }}
-                animate={{ y: isHovered ? 0 : 8 }}
+                className="w-full max-w-xs mx-auto flex flex-col gap-2"
+                initial={{ y: 10 }}
+                animate={{ y: isHovered ? 0 : 10 }}
                 transition={{ duration: 0.3, delay: 0.18 }}
               >
-                <div className="px-3 py-2 rounded-lg bg-secondary/50 border border-border/30 text-center">
-                  <p className="text-[9px] uppercase tracking-wider text-primary/70 font-semibold mb-0.5">Login Page Credentials</p>
-                  <p className="text-[10px] text-muted-foreground">
+                <div className="px-4 py-3 rounded-2xl bg-secondary/40 border border-border/30 text-center">
+                  <p className="text-[9px] uppercase tracking-wider text-primary/70 font-semibold mb-1">Login Page Credentials</p>
+                  <p className="text-[11px] text-muted-foreground">
                     Username: <span className="text-foreground font-mono">VoteNet25</span>
                   </p>
-                  <p className="text-[10px] text-muted-foreground">
+                  <p className="text-[11px] text-muted-foreground">
                     Password: <span className="text-foreground font-mono">votenet2k25</span>
                   </p>
                 </div>
-                <div className="px-3 py-2 rounded-lg bg-secondary/50 border border-border/30 text-center">
-                  <p className="text-[9px] uppercase tracking-wider text-primary/70 font-semibold mb-0.5">Demo Account (Registered)</p>
-                  <p className="text-[10px] text-muted-foreground">
+                <div className="px-4 py-3 rounded-2xl bg-secondary/40 border border-border/30 text-center">
+                  <p className="text-[9px] uppercase tracking-wider text-primary/70 font-semibold mb-1">Demo Account (Registered)</p>
+                  <p className="text-[11px] text-muted-foreground">
                     Student ID: <span className="text-foreground font-mono">{project.demoCredentials.studentId}</span>
                   </p>
-                  <p className="text-[10px] text-muted-foreground">
+                  <p className="text-[11px] text-muted-foreground">
                     Email: <span className="text-foreground font-mono">{project.demoCredentials.email}</span>
                   </p>
                 </div>
@@ -174,15 +174,15 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
             {/* Buttons */}
             <motion.div
               className="flex gap-3 mt-2"
-              initial={{ y: 8 }}
-              animate={{ y: isHovered ? 0 : 8 }}
+              initial={{ y: 10 }}
+              animate={{ y: isHovered ? 0 : 10 }}
               transition={{ duration: 0.3, delay: 0.22 }}
             >
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
                 onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink className="w-3.5 h-3.5" /> Live Demo
@@ -191,7 +191,7 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border/50 text-foreground text-xs font-medium hover:bg-secondary/50 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border/50 text-foreground text-xs font-semibold hover:bg-secondary/50 transition-all duration-300"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Github className="w-3.5 h-3.5" /> GitHub
@@ -202,41 +202,42 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
       </div>
 
       {/* Bottom Info Bar */}
-      <div className="px-5 py-4 border-t border-border/20">
+      <div className="px-6 py-5 border-t border-border/15">
         <div className="flex items-center justify-between">
           <div>
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-2.5 flex-wrap">
               <h3 className="font-display font-semibold text-foreground text-sm">
                 {project.title}
               </h3>
               {project.showAiBadge !== false && (
-                <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-md bg-accent/8 text-accent border border-accent/15 font-medium">
+                <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/15 font-medium">
                   AI-Assisted
                 </span>
               )}
               {project.frontendOnly && (
-                <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-md bg-neon-cyan/8 text-neon-cyan border border-neon-cyan/15 font-medium">
+                <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-full bg-primary/8 text-primary border border-primary/15 font-medium">
                   <Code2 className="w-3 h-3" />
                   Frontend
                 </span>
               )}
               {project.fullStack && (
-                <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-md bg-primary/8 text-primary border border-primary/15 font-medium">
+                <span className="inline-flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/15 font-medium">
                   <Database className="w-3 h-3" />
                   Full-Stack
                 </span>
               )}
             </div>
-            <p className="text-muted-foreground text-xs mt-1">{project.subtitle}</p>
+            <p className="text-muted-foreground text-xs mt-1.5">{project.subtitle}</p>
           </div>
-          <a
+          <motion.a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-muted-foreground hover:text-primary transition-colors"
+            className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/8 transition-all duration-300"
+            whileHover={{ scale: 1.1 }}
           >
             <ExternalLink className="w-4 h-4" />
-          </a>
+          </motion.a>
         </div>
       </div>
     </motion.div>
@@ -245,23 +246,25 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-28 section-gradient">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-32 section-gradient relative overflow-hidden">
+      <div className="absolute inset-0 grain-overlay" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-3">My work</p>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Featured Projects</h2>
-          <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm">
+          <p className="text-primary text-xs font-medium tracking-[0.3em] uppercase mb-4">My work</p>
+          <h2 className="text-4xl sm:text-5xl font-display font-bold text-foreground">Featured Projects</h2>
+          <p className="text-muted-foreground mt-5 max-w-lg mx-auto text-sm leading-relaxed">
             A selection of real-world applications showcasing full-stack development, secure authentication, and polished UI design.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-7 max-w-5xl mx-auto">
           {projects.map((project, idx) => (
             <ProjectCard key={project.title} project={project} idx={idx} />
           ))}
