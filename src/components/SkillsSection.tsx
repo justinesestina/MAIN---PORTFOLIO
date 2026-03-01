@@ -9,7 +9,6 @@ const categories = [
     title: "Frontend",
     subtitle: "Foundations",
     icon: Layout,
-    gradient: "from-primary/10 to-accent/5",
     skills: [
       { name: "HTML5", icon: Globe },
       { name: "CSS3", icon: Palette },
@@ -23,7 +22,6 @@ const categories = [
     title: "Backend",
     subtitle: "Learning & Building",
     icon: Server,
-    gradient: "from-accent/10 to-primary/5",
     skills: [
       { name: "Supabase", icon: Server },
       { name: "Authentication", icon: KeyRound },
@@ -34,7 +32,6 @@ const categories = [
     title: "Database",
     subtitle: "Basic Usage",
     icon: Database,
-    gradient: "from-primary/8 to-accent/8",
     skills: [
       { name: "PostgreSQL", icon: Database },
       { name: "CRUD Operations", icon: FileCode },
@@ -47,7 +44,7 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 grain-overlay" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -69,7 +66,7 @@ const SkillsSection = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: catIdx * 0.12 }}
               whileHover={{ y: -5 }}
-              className={`p-7 rounded-3xl bg-gradient-to-br ${cat.gradient} border border-border/30 hover:border-primary/20 transition-all duration-500 group cozy-shadow`}
+              className="p-7 rounded-3xl bg-card/60 border border-border/30 card-hover group cozy-shadow"
             >
               <div className="flex items-center gap-3.5 mb-6">
                 <div className="w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-300">
