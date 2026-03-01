@@ -6,25 +6,21 @@ const services = [
     icon: Globe,
     title: "Practical Web Applications",
     description: "I build structured and functional web applications with authentication and database integration. With every project, I aim to strengthen my understanding of backend fundamentals and real-world system development.",
-    gradient: "from-primary/10 to-transparent",
   },
   {
     icon: Layout,
     title: "Responsive Frontend Development",
     description: "I create clean and mobile-friendly interfaces using React and modern CSS tools. I focus on usability, clarity, and continuously improving my frontend foundations.",
-    gradient: "from-accent/10 to-transparent",
   },
   {
     icon: Lightbulb,
     title: "Academic & System-Based Projects",
     description: "I enjoy building practical systems such as student management platforms and voting systems, applying structured thinking and problem-solving.",
-    gradient: "from-primary/8 to-transparent",
   },
   {
     icon: Palette,
     title: "UI-Focused Web Design",
     description: "I design simple, user-friendly interfaces with smooth interactions. I continue learning better UI/UX practices to improve both aesthetics and functionality.",
-    gradient: "from-accent/8 to-transparent",
   },
 ];
 
@@ -32,7 +28,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 grain-overlay" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -56,9 +52,9 @@ const ServicesSection = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -5 }}
-              className={`p-8 rounded-3xl bg-gradient-to-br ${service.gradient} border border-border/30 hover:border-primary/20 transition-all duration-500 group cozy-shadow`}
+              className="p-8 rounded-3xl bg-card/60 border border-border/30 card-hover group cozy-shadow"
             >
-              <motion.div 
+              <motion.div
                 className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-300"
                 whileHover={{ rotate: 5 }}
               >

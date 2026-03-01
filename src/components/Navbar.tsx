@@ -30,20 +30,20 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/70 backdrop-blur-2xl border-b border-primary/10 shadow-lg shadow-primary/5"
+          ? "bg-background/80 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-primary/5"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-5 flex items-center justify-between">
-        <motion.a 
-          href="#" 
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <motion.a
+          href="#"
           className="flex items-center gap-1 text-foreground group"
           whileHover={{ scale: 1.02 }}
         >
           <span className="font-display font-bold text-xl tracking-tight">
-            J<span className="text-primary">.</span>R
+            J<span className="gradient-text">.</span>R
           </span>
         </motion.a>
 
@@ -56,10 +56,10 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.05 }}
-              className="relative px-4 py-2 rounded-full text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium group"
+              className="relative px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium group"
             >
               {link.label}
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-4 transition-all duration-300" />
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-5 transition-all duration-300" />
             </motion.button>
           ))}
         </div>

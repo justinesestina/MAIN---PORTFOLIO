@@ -13,7 +13,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-32 section-gradient relative overflow-hidden">
       <div className="absolute inset-0 grain-overlay" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,7 +22,7 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <motion.p 
+          <motion.p
             className="text-primary text-xs font-medium tracking-[0.3em] uppercase mb-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -44,7 +44,7 @@ const AboutSection = () => {
             className="flex justify-center"
           >
             <div className="relative">
-              <motion.div 
+              <motion.div
                 className="w-60 h-72 sm:w-68 sm:h-84 md:w-72 md:h-96 rounded-3xl overflow-hidden relative group cozy-shadow"
                 whileHover={{ scale: 1.02, rotate: -1 }}
                 transition={{ duration: 0.4 }}
@@ -60,8 +60,7 @@ const AboutSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-primary/5" />
               </motion.div>
-              
-              {/* Decorative frame */}
+
               <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl border border-primary/15" />
               <motion.div
                 className="absolute -bottom-6 -right-6 px-5 py-3 rounded-2xl bg-card border border-border/40 cozy-shadow"
@@ -100,7 +99,7 @@ const AboutSection = () => {
               {highlights.map((item, i) => (
                 <motion.div
                   key={item.label}
-                  className="px-4 py-3.5 rounded-2xl bg-secondary/50 border border-border/30 flex items-center gap-3 hover:border-primary/20 transition-all duration-300 group"
+                  className="px-4 py-3.5 rounded-2xl bg-secondary/50 border border-border/30 flex items-center gap-3 card-hover group"
                   whileHover={{ y: -2 }}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}

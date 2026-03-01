@@ -37,12 +37,12 @@ const ContactSection = () => {
     setForm({ name: "", email: "", message: "" });
   };
 
-  const inputClasses = "w-full px-5 py-4 rounded-2xl bg-secondary/30 border border-border/30 text-foreground placeholder:text-muted-foreground/50 text-sm focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300";
+  const inputClasses = "w-full px-5 py-4 rounded-xl bg-secondary/30 border border-border/30 text-foreground placeholder:text-muted-foreground/50 text-sm focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300";
 
   return (
     <section id="contact" className="py-32 section-gradient relative overflow-hidden">
       <div className="absolute inset-0 grain-overlay" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -84,14 +84,14 @@ const ContactSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ y: -3, scale: 1.05 }}
-                  className="w-12 h-12 rounded-2xl bg-secondary/50 border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/8 transition-all duration-300"
+                  className="w-12 h-12 rounded-xl bg-secondary/50 border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/8 transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                 </motion.a>
               ))}
             </div>
 
-            <motion.div 
+            <motion.div
               className="p-5 rounded-2xl bg-primary/5 border border-primary/15 flex items-center gap-4"
               whileHover={{ scale: 1.01 }}
             >
@@ -146,9 +146,9 @@ const ContactSection = () => {
             </div>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.01, boxShadow: "0 10px 40px -10px hsl(28 70% 55% / 0.3)" }}
+              whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-body font-semibold text-sm flex items-center justify-center gap-2.5 hover:bg-primary/90 transition-all duration-300"
+              className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-body font-semibold text-sm flex items-center justify-center gap-2.5 hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20"
             >
               <Send className="w-4 h-4" />
               Send Message

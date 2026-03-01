@@ -4,6 +4,7 @@ import zapGatewayImg from "@/assets/project-zap-gateway.png";
 import voteNetImg from "@/assets/project-votenet.png";
 import cyberverseImg from "@/assets/project-cyberverse.png";
 import icctAttendanceImg from "@/assets/project-icct-attendance.png";
+import nocturneImg from "@/assets/project-nocturne.png";
 import { useState } from "react";
 
 const projects = [
@@ -56,6 +57,18 @@ const projects = [
     showAiBadge: false,
     frontendOnly: true,
   },
+  {
+    title: "Nocturne Café",
+    subtitle: "Cinematic Café Experience Website",
+    description:
+      "A frontend immersive café website focused on visual storytelling, interaction design, and responsive editorial layouts, built as a portfolio project to demonstrate advanced UI/UX and motion-driven frontend development.",
+    link: "https://nocturnecafe-ph.vercel.app/",
+    github: "https://github.com/justinesestina",
+    image: nocturneImg,
+    tech: ["React.js", "Tailwind CSS", "Framer Motion"],
+    showAiBadge: false,
+    frontendOnly: true,
+  },
 ];
 
 const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: number }) => {
@@ -66,15 +79,14 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group rounded-3xl overflow-hidden bg-card/50 border border-border/30 hover:border-primary/20 transition-all duration-500 cozy-shadow hover:shadow-2xl hover:shadow-primary/5"
+      className="group rounded-2xl overflow-hidden bg-card/50 border border-border/30 card-hover cozy-shadow"
     >
       {/* Browser Frame */}
       <div className="relative">
-        {/* Browser Top Bar */}
-        <div className="flex items-center gap-2 px-5 py-3 bg-secondary/30 border-b border-border/15">
+        <div className="flex items-center gap-2 px-5 py-3 bg-secondary/30 border-b border-border/20">
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-destructive/40" />
             <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
@@ -97,8 +109,6 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
             animate={{ scale: isHovered ? 1.04 : 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           />
-
-          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent opacity-50" />
 
           {/* Hover overlay */}
@@ -125,7 +135,6 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
               {project.description}
             </motion.p>
 
-            {/* Tech tags */}
             <motion.div
               className="flex flex-wrap justify-center gap-2 mt-1"
               initial={{ y: 10 }}
@@ -142,7 +151,6 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
               ))}
             </motion.div>
 
-            {/* Credentials */}
             {project.demoCredentials && (
               <motion.div
                 className="w-full max-w-xs mx-auto flex flex-col gap-2"
@@ -171,7 +179,6 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
               </motion.div>
             )}
 
-            {/* Buttons */}
             <motion.div
               className="flex gap-3 mt-2"
               initial={{ y: 10 }}
@@ -182,7 +189,7 @@ const ProjectCard = ({ project, idx }: { project: typeof projects[0]; idx: numbe
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20"
                 onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink className="w-3.5 h-3.5" /> Live Demo
@@ -248,7 +255,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-32 section-gradient relative overflow-hidden">
       <div className="absolute inset-0 grain-overlay" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

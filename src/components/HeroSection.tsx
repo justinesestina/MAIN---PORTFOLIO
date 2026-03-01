@@ -9,25 +9,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Warm ambient background */}
       <div className="absolute inset-0 hero-gradient" />
       <div className="absolute inset-0 grain-overlay" />
-      
-      {/* Floating warm orbs */}
-      <motion.div 
-        className="absolute top-1/4 left-[15%] w-96 h-96 rounded-full bg-primary/8 blur-[150px]"
+
+      {/* Soft ambient orbs */}
+      <motion.div
+        className="absolute top-1/4 left-[10%] w-[500px] h-[500px] rounded-full bg-primary/6 blur-[180px]"
         animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-1/4 right-[15%] w-72 h-72 rounded-full bg-accent/8 blur-[120px]"
-        animate={{ y: [15, -15, 15], x: [10, -10, 10] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/4 blur-[180px]"
-        animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 right-[10%] w-[400px] h-[400px] rounded-full bg-accent/5 blur-[150px]"
+        animate={{ y: [15, -15, 15] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <div className="relative z-10 container mx-auto px-6">
@@ -45,7 +39,7 @@ const HeroSection = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm"
             >
-              <div className="w-2 h-2 rounded-full bg-accent animate-pulse-neon" />
+              <div className="w-2 h-2 rounded-full bg-accent animate-pulse-soft" />
               <span className="text-xs text-primary font-medium tracking-wider uppercase">Available for freelance</span>
             </motion.div>
 
@@ -95,9 +89,9 @@ const HeroSection = () => {
             >
               <motion.button
                 onClick={scrollToProjects}
-                whileHover={{ scale: 1.03, boxShadow: "0 10px 40px -10px hsl(28 70% 55% / 0.4)" }}
+                whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-body font-semibold text-sm transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-body font-semibold text-sm transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
               >
                 <Sparkles className="w-4 h-4" />
                 View My Work
@@ -106,7 +100,7 @@ const HeroSection = () => {
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl border border-border/50 text-foreground font-body font-semibold text-sm hover:bg-secondary/40 transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-border/50 text-foreground font-body font-semibold text-sm hover:bg-secondary/40 hover:border-primary/30 transition-all duration-300"
               >
                 Get In Touch
               </motion.button>
@@ -121,12 +115,9 @@ const HeroSection = () => {
             className="relative"
           >
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
-              {/* Glow behind */}
-              <div className="absolute inset-0 rounded-full bg-primary/15 blur-3xl scale-110 animate-glow-pulse" />
-              
-              {/* Photo */}
-              <motion.div 
-                className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/20 cozy-shadow"
+              <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-110 animate-glow-pulse" />
+              <motion.div
+                className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/25 cozy-shadow"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.4 }}
               >
@@ -138,14 +129,14 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
               </motion.div>
 
-              {/* Floating decorative elements */}
+              {/* Floating dots */}
               <motion.div
-                className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary/20 border border-primary/30"
+                className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary/15 border border-primary/25"
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -bottom-2 -left-4 w-5 h-5 rounded-full bg-accent/20 border border-accent/30"
+                className="absolute -bottom-2 -left-4 w-5 h-5 rounded-full bg-accent/15 border border-accent/25"
                 animate={{ y: [5, -5, 5] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               />
