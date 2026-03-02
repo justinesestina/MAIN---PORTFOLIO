@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ["Poppins", "sans-serif"],
         body: ["Inter", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -78,11 +79,15 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-15px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "50%": { transform: "translateY(-15px) rotate(3deg)" },
         },
         "pulse-soft": {
           "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
+          "50%": { opacity: "0.4" },
         },
         "gradient-shift": {
           "0%": { backgroundPosition: "0% 50%" },
@@ -90,17 +95,33 @@ export default {
           "100%": { backgroundPosition: "0% 50%" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px -5px hsl(262 63% 65% / 0.2)" },
-          "50%": { boxShadow: "0 0 40px -5px hsl(262 63% 65% / 0.35)" },
+          "0%, 100%": { boxShadow: "0 0 30px -8px hsl(262 63% 55% / 0.15)" },
+          "50%": { boxShadow: "0 0 50px -8px hsl(262 63% 55% / 0.3)" },
+        },
+        "slide-up-fade": {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.9)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        "line-grow": {
+          "0%": { height: "0%" },
+          "100%": { height: "100%" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "float": "float 6s ease-in-out infinite",
+        "float-slow": "float-slow 8s ease-in-out infinite",
         "pulse-soft": "pulse-soft 3s ease-in-out infinite",
         "gradient-shift": "gradient-shift 8s ease infinite",
         "glow-pulse": "glow-pulse 4s ease-in-out infinite",
+        "slide-up-fade": "slide-up-fade 0.6s ease-out",
+        "scale-in": "scale-in 0.5s ease-out",
+        "line-grow": "line-grow 1.5s ease-out",
       },
     },
   },

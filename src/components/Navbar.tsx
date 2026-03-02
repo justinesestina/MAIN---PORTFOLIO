@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -13,9 +13,21 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      
+      const sections = navLinks.map(l => l.href.replace("#", ""));
+      for (const section of sections.reverse()) {
+        const el = document.getElementById(section);
+        if (el && el.getBoundingClientRect().top <= 200) {
+          setActiveSection(section);
+          break;
+        }
+      }
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -32,7 +44,7 @@ const Navbar = () => {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-primary/5"
+          ? "bg-background/70 backdrop-blur-2xl border-b border-border/30 shadow-lg shadow-primary/3"
           : "bg-transparent"
       }`}
     >
@@ -49,20 +61,41 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link, i) => (
-            <motion.button
-              key={link.href}
-              onClick={() => handleClick(link.href)}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.05 }}
-              className="relative px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium group"
-            >
-              {link.label}
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-5 transition-all duration-300" />
-            </motion.button>
-          ))}
+          {navLinks.map((link, i) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <motion.button
+                key={link.href}
+                onClick={() => handleClick(link.href)}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.05 }}
+                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-indicator"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-primary rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </motion.button>
+            );
+          })}
         </div>
+
+        <motion.a
+          href="#contact"
+          onClick={(e) => { e.preventDefault(); handleClick("#contact"); }}
+          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/10 border border-primary/20 text-primary text-xs font-semibold hover:bg-primary/15 transition-all duration-300"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          Hire Me <ArrowUpRight className="w-3.5 h-3.5" />
+        </motion.a>
 
         {/* Mobile toggle */}
         <button

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Facebook, Github, Instagram, Mail, Send, Heart } from "lucide-react";
+import { Facebook, Github, Instagram, Mail, Send, Heart, ArrowUpRight } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 
@@ -37,7 +37,7 @@ const ContactSection = () => {
     setForm({ name: "", email: "", message: "" });
   };
 
-  const inputClasses = "w-full px-5 py-4 rounded-xl bg-secondary/30 border border-border/30 text-foreground placeholder:text-muted-foreground/50 text-sm focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-300";
+  const inputClasses = "w-full px-5 py-4 rounded-2xl bg-secondary/20 border border-border/20 text-foreground placeholder:text-muted-foreground/40 text-sm focus:outline-none focus:border-primary/30 focus:ring-2 focus:ring-primary/8 transition-all duration-300";
 
   return (
     <section id="contact" className="py-32 section-gradient relative overflow-hidden">
@@ -53,6 +53,9 @@ const ContactSection = () => {
         >
           <p className="text-primary text-xs font-medium tracking-[0.3em] uppercase mb-4">Reach out</p>
           <h2 className="text-4xl sm:text-5xl font-display font-bold text-foreground">Get In Touch</h2>
+          <p className="text-muted-foreground mt-4 max-w-md mx-auto text-sm leading-relaxed">
+            Have a project in mind or just want to say hello? I'd love to hear from you.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-14 max-w-4xl mx-auto">
@@ -65,7 +68,7 @@ const ContactSection = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="font-display font-semibold text-2xl text-foreground mb-4">Let's Connect</h3>
+              <h3 className="font-display font-bold text-2xl text-foreground mb-4">Let's Connect</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
@@ -82,27 +85,33 @@ const ContactSection = () => {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -3, scale: 1.05 }}
-                  className="w-12 h-12 rounded-xl bg-secondary/50 border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/8 transition-all duration-300"
+                  transition={{ delay: i * 0.08 }}
+                  whileHover={{ y: -4, scale: 1.08 }}
+                  className="w-12 h-12 rounded-xl bg-secondary/30 border border-border/20 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/25 hover:bg-primary/6 transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                 </motion.a>
               ))}
             </div>
 
-            <motion.div
-              className="p-5 rounded-2xl bg-primary/5 border border-primary/15 flex items-center gap-4"
+            <motion.a
+              href="mailto:kisethsestina@gmail.com"
+              className="block p-5 rounded-2xl bg-primary/[0.04] border border-primary/10 group hover:border-primary/20 transition-all duration-300"
               whileHover={{ scale: 1.01 }}
             >
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Mail className="w-5 h-5 text-primary" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-0.5">Email me at</p>
+                    <span className="text-sm text-foreground font-medium">kisethsestina@gmail.com</span>
+                  </div>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
-              <div>
-                <p className="text-xs text-muted-foreground mb-0.5">Email me at</p>
-                <span className="text-sm text-foreground font-medium">kisethsestina@gmail.com</span>
-              </div>
-            </motion.div>
+            </motion.a>
           </motion.div>
 
           {/* Form */}
@@ -148,7 +157,7 @@ const ContactSection = () => {
               type="submit"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-body font-semibold text-sm flex items-center justify-center gap-2.5 hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20"
+              className="w-full py-4 rounded-2xl bg-primary text-primary-foreground font-body font-semibold text-sm flex items-center justify-center gap-2.5 hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/15"
             >
               <Send className="w-4 h-4" />
               Send Message
@@ -162,7 +171,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-28 text-center border-t border-border/15 pt-10"
+          className="mt-28 text-center border-t border-border/10 pt-10"
         >
           <p className="text-muted-foreground text-sm flex items-center justify-center gap-1.5">
             © 2025 Justine Ragaza. Built with <Heart className="w-3.5 h-3.5 text-primary fill-primary" /> passion.
